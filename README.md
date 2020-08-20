@@ -1,2 +1,4 @@
 # gorp
-Terminal-based parser and pretty-printer for g++ output.
+Some developers prefer to work with just the command line and a text editor rather than a fully-fledged IDE, because the command line provides tools for searching text files, working with source control, etc. that are far more concise and powerful than a GUI.
+
+However, one thing that IDEs do well is parsing the error messages that come from the compiler and letting you click on one of the messages to jump to the exact line of code that caused the error. The gorp program is designed to do the same thing, but running within a command line terminal. Error and warning messages are displayed in a list in an ncurses-based interface. You can open the line that caused the error in your text editor by using the arrow keys to select the error line and pressing `enter`, or by just clicking on the error message.
