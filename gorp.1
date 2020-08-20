@@ -1,0 +1,46 @@
+." man page for gorp.
+.TH gorp 1 "20 Dec 2018" "ver. 0.9.0" "GCC Output Reading Program"
+
+.SH NAME
+\fBgorp\fR \(en GCC Output Reading Program
+
+.SH SYNOPSIS
+\fBgorp\fR [\fB\-v/--version\fR] [\fB\-h/--help\fR] [\fB\-c/--commands\fR]
+
+.SH DESCRIPTION
+\fBgorp\fR is a command line equivalent of the build functionality built into most IDEs. It parses the output of a build command and lists the errors directly in a terminal window, and lets you click on or select any error to jump to the line of the file that caused it.
+.PP
+When the program is run, it will initiate a build in the current working directory. To issue a clean command, press the backspace or delete key. To issue a new build command (e.g. to rebuild the program after cleaning or after fixing errors) press the space bar. The default commands that are issued to build, to clean, or to edit a file are as follows:
+.RS
+build: make
+.RE
+.RS
+clean: make clean
+.RE
+.RS
+edit: gedit FILE +LINE:COLUMN
+.RE
+.PP
+You can specify different commands to use by creating a \fB.gorp\fR file either in the build directory (to specify commands just for that particular project) or your home directory (to specify defaults to use everywhere).
+.PP
+When error messages are being displayed, you can use the up and down arrow keys to select a message and then press the enter key to open the corresponding file at the line that generated the message. Mouse clicks and the page up/down keys are also supported.
+
+.SH OPTIONS
+.IP "\fB\-v/--version\fR"
+Prints the program's version number and then exits.
+.IP "\fB\-h/--help\fR"
+Prints a help message and then exits.
+.IP "\fB\-c/--commands\fR"
+Prints the strings being used for the build, clean, and edit commands (reading them from \fB.gorp\fR files if available) and then exits.
+
+.SH FILES
+.IP "\fB~/.gorp\fR"
+The default command strings to use.
+.IP "\fB.gorp\fR"
+A file placed in a particular directory to specify the command strings to be used for \fBgorp\fR build commands in that directory.
+
+.SH SEE ALSO
+gcc(1)
+
+.SH AUTHOR
+Michael Zahniser (mzahniser@gmail.com)
